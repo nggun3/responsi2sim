@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ANG ANG KARAOKE</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        color: #fff;
+        background: #0f141a;
+      }
+
+      /* ======= GANTI BACKGROUND DI SINI ======= */
+      .bg-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)),
+          url("assets/barub.jpg") center/cover no-repeat;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        background: rgba(70, 100, 130, 0.95);
+        backdrop-filter: blur(6px);
+      }
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+      /* ======= GANTI LOGO DI SINI ======= */
+      .navbar-brand img {
+        height: 40px;
+      }
+
+      .nav-link {
+        color: #fff !important;
+        opacity: 0.9;
+        margin-right: 18px;
+      }
+      .nav-link:hover {
+        opacity: 1;
+        text-decoration: underline;
+      }
+
+      .btn-contact {
+        background: #4fa3d1;
+        color: #fff;
+        border-radius: 12px;
+        padding: 8px 18px;
+        border: none;
+      }
+
+      /* SECTION PADDING */
+      .section {
+        padding: 95px 0;
+      }
+
+      /* HOME */
+      #home {
+        min-height: 100vh;
+        padding-top: 140px;
+      }
+      #home h1 {
+        font-size: 72px;
+        font-weight: 900;
+        line-height: 0.95;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      .home-sub {
+        max-width: 560px;
+        font-size: 18px;
+        opacity: 0.95;
+        margin-top: 10px;
+      }
+      .home-btn {
+        width: 230px;
+        padding: 14px 0;
+        font-weight: 700;
+        border-radius: 12px;
+      }
+
+      /* ABOUT BOX */
+      .about-box {
+        background: rgba(90, 90, 90, 0.85);
+        padding: 40px;
+        max-width: 1100px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      }
+
+      /* ABOUT GALLERY (5 FOTO) */
+      .gallery img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        transition: transform 0.2s ease;
+      }
+      .gallery img:hover {
+        transform: scale(1.02);
+      }
+
+      /* ROOM CARD */
+      .room-card {
+        background: rgba(120, 120, 120, 0.88);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      }
+      .room-card h5 {
+        background: rgba(90, 90, 90, 0.95);
+        margin: 0;
+        padding: 12px;
+        text-align: center;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+      }
+      .room-card img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+      }
+      .room-info {
+        padding: 14px;
+        text-align: center;
+      }
+      .room-info p {
+        margin: 6px 0;
+      }
+      .book-btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        font-weight: 800;
+        background: #d8d8d8;
+        border-radius: 8px;
+      }
+      .book-btn:hover {
+        filter: brightness(0.95);
+      }
+
+      /* CONTACT */
+      .contact-box {
+        background: rgba(110, 110, 110, 0.85);
+        padding: 30px;
+        max-width: 520px;
+        margin: auto;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      }
+
+      /* MODAL */
+      .modal-content {
+        border-radius: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand text-white" href="#home">
+          <img src="assets/logo.png" alt="Logo" />
+          ANG ANG KARAOKE
+        </a>
+
+        <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#booking">Booking</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-contact" href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home" class="bg-section">
+      <div class="container">
+        <h1>ANG ANG<br />KARAOKE</h1>
+        <div class="home-sub">
+          Karaoke premium dengan ruangan private, audio mantap, dan suasana
+          modern untuk hangout, party, & momen spesial.
+        </div>
+
+        <div class="mt-4 d-flex flex-column gap-2" style="max-width: 240px">
+          <!-- buka modal -->
+          <button
+            type="button"
+            class="btn btn-primary home-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#bookingModal"
+          >
+            Booking Sekarang
+          </button>
+
+          <a href="#about" class="btn btn-info text-white home-btn"
+            >Lihat About Us</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="about" class="bg-section section">
+      <div class="about-box">
+        <h3 class="text-center mb-4 fw-bold">ABOUT US</h3>
+        <p style="font-size: 18px; line-height: 1.75">
+          <b>ANG ANG KARAOKE</b> adalah destinasi hiburan premium yang
+          menghadirkan pengalaman bernyanyi dengan standar kualitas tinggi.
+          Mengusung desain arsitektur modern dan elegan, setiap ruang karaoke
+          dirancang untuk memberikan kenyamanan, privasi, dan suasana eksklusif.
+          Didukung oleh sistem audio profesional serta koleksi lagu terkurasi,
+          kami berkomitmen menghadirkan pengalaman hiburan yang berkelas dan
+          berkesan. <b>ANG ANG KARAOKE</b> didirikan pada tahun 2025, lahir dari
+          visi untuk menciptakan tempat karaoke yang lebih nyaman, modern, dan
+          premium. Sejak awal berdiri, kami selalu mengutamakan kualitas dalam
+          setiap detail, mulai dari desain ruangan, teknologi suara, hingga
+          pelayanan yang profesional. Hingga kini, ANG ANG KARAOKE terus
+          berkembang dan menjadi pilihan utama bagi yang menginginkan hiburan
+          eksklusif untuk bersantai, berkumpul, maupun merayakan momen istimewa.
+        </p>
+
+        <!-- GALLERY 5 FOTO -->
+        <div class="row g-3 gallery mt-4">
+          <div class="col-md-4">
+            <img src="assets/gallery1.jpg" alt="Gallery 1" />
+          </div>
+          <div class="col-md-4">
+            <img src="assets/gallery2.jpg" alt="Gallery 2" />
+          </div>
+          <div class="col-md-4">
+            <img src="assets/gallery3.jpg" alt="Gallery 3" />
+          </div>
+          <div class="col-md-6">
+            <img src="assets/gallery4.jpg" alt="Gallery 4" />
+          </div>
+          <div class="col-md-6">
+            <img src="assets/gallery5.jpg" alt="Gallery 5" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING (6 ROOM) -->
+    <section id="booking" class="bg-section section">
+      <div class="container">
+        <h3 class="text-center mb-4 fw-bold">BOOKING ROOM</h3>
+
+        <div class="row g-4">
+          <!-- ROOM 1 -->
+          <div class="col-md-4">
+            <div class="room-card">
+              <h5>PLATINUM SUITE</h5>
+              <img src="assets/karaoke1.jpg" alt="Room 1" />
+              <div class="room-info">
+                <p>Max 11 orang</p>
+                <p>Rp450.000 / jam</p>
+                <button
+                  class="book-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookingModal"
+                  data-room="PLATINUM SUITE"
+                >
+                  Booking
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROOM 2 -->
+          <div class="col-md-4">
+            <div class="room-card">
+              <h5>DIAMOND LOUNGE</h5>
+              <img src="assets/karaoke2.jpg" alt="Room 2" />
+              <div class="room-info">
+                <p>Max 6 orang</p>
+                <p>Rp570.000 / jam</p>
+                <button
+                  class="book-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookingModal"
+                  data-room="DIAMOND LOUNGE"
+                >
+                  Booking
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROOM 3 -->
+          <div class="col-md-4">
+            <div class="room-card">
+              <h5>SOVEREIGN DELUXE</h5>
+              <img src="assets/karaoke3.jpg" alt="Room 3" />
+              <div class="room-info">
+                <p>Max 14 orang</p>
+                <p>Rp785.000 / jam</p>
+                <button
+                  class="book-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookingModal"
+                  data-room="SOVEREIGN DELUXE"
+                >
+                  Booking
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROOM 4 -->
+          <div class="col-md-4">
+            <div class="room-card">
+              <h5>ROOM AVATAR</h5>
+              <img src="assets/karaoke4.jpg" alt="Room 4" />
+              <div class="room-info">
+                <p>Max 8 orang</p>
+                <p>Rp175.000 / jam</p>
+                <button
+                  class="book-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookingModal"
+                  data-room="ROOM AVATAR"
+                >
+                  Booking
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROOM 5 -->
+          <div class="col-md-4">
+            <div class="room-card">
+              <h5>ROOM GADKZ</h5>
+              <img src="assets/karaoke5.jpg" alt="Room 5" />
+              <div class="room-info">
+                <p>Max 10 orang</p>
+                <p>Rp255.000 / jam</p>
+                <button
+                  class="book-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookingModal"
+                  data-room="ROOM GADKZ"
+                >
+                  Booking
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROOM 6 -->
+          <div class="col-md-4">
+            <div class="room-card">
+              <h5>ROOM GALAXYZ</h5>
+              <img src="assets/karaoke6.jpg" alt="Room 6" />
+              <div class="room-info">
+                <p>Max 12 orang</p>
+                <p>Rp345.000 / jam</p>
+                <button
+                  class="book-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookingModal"
+                  data-room="ROOM GALAXYZ"
+                >
+                  Booking
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="location" style="padding: 80px 0; background: #0b0f14">
+      <div class="container">
+        <h2 class="text-center mb-4" style="font-weight: 700">LOCATION</h2>
+
+        <!-- MAPS -->
+        <div
+          style="
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+          "
+        >
+          <!-- GANTI URL MAPS DI SRC INI -->
+          <iframe
+            src="https://www.google.com/maps?q=Jogjatronik%20Mall%20Yogyakarta&output=embed"
+            width="100%"
+            height="380"
+            style="border: 0"
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / CONTACT SECTION -->
+    <section
+      id="contact"
+      style="background: #7a7a7a; color: #fff; padding: 60px 0"
+    >
+      <div class="container">
+        <div class="row">
+          <!-- LEFT : LOGO & ADDRESS -->
+          <div class="col-md-4 mb-4">
+            <h4 style="font-weight: 700">
+              <img
+                src="assets/logo.png"
+                alt="logo"
+                style="height: 40px; margin-right: 10px"
+              />
+              ANG ANG KARAOKE
+            </h4>
+
+            <p style="margin-top: 15px; line-height: 1.6">
+              Jogjatronik Mall Prawirodirjan,<br />
+              Jl. Brigjen Katamso No.75–77 Lantai Roof,<br />
+              Daerah Istimewa Yogyakarta 55121
+            </p>
+
+            <p>
+              📧
+              <a href="mailto:angangkaraoke@gmail.com" class="footer-link">
+                angangkaraoke@gmail.com
+              </a>
+            </p>
+          </div>
+
+          <!-- MIDDLE : QUICK LINKS -->
+          <div class="col-md-4 mb-4">
+            <h4 style="font-weight: 700">QUICK LINKS</h4>
+            <div class="footer-quick">
+              <a href="#home">Beranda</a>
+              <a href="#about">About Us</a>
+              <a href="#booking">Booking</a>
+            </div>
+          </div>
+
+          <!-- RIGHT : CONTACT INFO -->
+          <div class="col-md-4 mb-4 footer-contact">
+            <p>
+              📞
+              <a href="https://wa.me/6282318473276" target="_blank">
+                0823-1847-3276
+              </a>
+            </p>
+
+            <p>
+              📍
+              <a
+                href="https://maps.google.com?q=Jl.+Brigjen+Katamso+No.75-77+Yogyakarta"
+                target="_blank"
+              >
+                Jl. Brigjen Katamso No.75–77
+              </a>
+            </p>
+
+            <p>
+              🕒 <strong>Jam Operasional</strong><br />
+              24 Jam
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STYLE FOOTER -->
+    <style>
+      .footer-link {
+        color: #ffffff;
+        text-decoration: none;
+        transition: all 0.25s ease;
+      }
+
+      .footer-link:hover {
+        color: #4da6ff;
+        text-decoration: underline;
+      }
+
+      .footer-link:active {
+        color: #1e90ff;
+      }
+
+      .footer-quick a {
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 8px;
+        transition: all 0.25s ease;
+      }
+
+      .footer-quick a:hover {
+        color: #4da6ff;
+        padding-left: 6px;
+      }
+
+      .footer-contact a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.25s ease;
+      }
+
+      .footer-contact a:hover {
+        color: #4da6ff;
+      }
+    </style>
+
+    <!-- MODAL BOOKING -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content booking-modal">
+          <div class="modal-header">
+            <h5 class="modal-title">Booking Ruangan</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <input
+              type="text"
+              id="nama"
+              class="form-control"
+              placeholder="Nama Lengkap"
+            />
+            <input
+              type="text"
+              id="hp"
+              class="form-control"
+              placeholder="Nomor WhatsApp"
+            />
+            <input type="date" id="tanggal" class="form-control" />
+
+            <label>Jam Mulai</label>
+            <input
+              type="time"
+              id="mulai"
+              class="form-control"
+              min="13:00"
+              max="01:00"
+            />
+
+            <label>Jam Selesai</label>
+            <input
+              type="time"
+              id="selesai"
+              class="form-control"
+              min="13:00"
+              max="01:00"
+            />
+
+            <!-- ROOM OTOMATIS (TIDAK DIPILIH LAGI) -->
+            <input
+              type="text"
+              id="room"
+              class="form-control room-field"
+              readonly
+            />
+
+            <button class="btn btn-primary w-100 mt-3" onclick="kirimWA()">
+              Kirim Booking (WhatsApp)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .booking-modal {
+        background: #1f252b;
+        color: #fff;
+        border-radius: 16px;
+      }
+
+      .booking-modal .form-control {
+        margin-bottom: 12px;
+        padding: 12px;
+        border-radius: 10px;
+        background: #ffffff;
+      }
+
+      .booking-modal label {
+        margin-top: 6px;
+        font-size: 14px;
+      }
+
+      .room-field {
+        background: #e9ecef;
+        font-weight: bold;
+        color: #000;
+      }
+    </style>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SCRIPT -->
+    <script>
+      // Auto isi room dari tombol booking
+
+      const modal = document.getElementById("bookingModal");
+
+      modal.addEventListener("show.bs.modal", function (event) {
+        const button = event.relatedTarget;
+        const roomName = button.getAttribute("data-room");
+        document.getElementById("room").value = roomName;
+      });
+
+      function kirimWA() {
+        const nama = document.getElementById("nama").value;
+        const hp = document.getElementById("hp").value;
+        const tgl = document.getElementById("tanggal").value;
+        const mulai = document.getElementById("mulai").value;
+        const selesai = document.getElementById("selesai").value;
+        const room = document.getElementById("room").value;
+
+        if (!nama || !hp || !tgl || !mulai || !selesai) {
+          alert("Lengkapi semua data booking dulu ya 😊");
+          return;
+        }
+
+        // =========================
+        // GANTI DATA DI SINI SAJA
+        // =========================
+        const noWA = "6282318473276"; // nomor WhatsApp admin
+        const namaBank = "BCA";
+        const noRek = "100507181105";
+        const atasNama = "ANG ANG KARAOKE";
+        // =========================
+
+        const pesan = `
+Halo Kak 👋
+Terima kasih telah melakukan booking di *ANG ANG KARAOKE* 🎶
+
+📌 *Detail Booking*
+Nama: ${nama}
+WhatsApp: ${hp}
+Tanggal: ${tgl}
+Jam: ${mulai} - ${selesai}
+Room: ${room}
+
+💳 *Informasi Pembayaran*
+Bank: ${namaBank}
+No. Rekening: ${noRek}
+Atas Nama: ${atasNama}
+
+Setelah melakukan pembayaran, mohon kirimkan *bukti transfer* agar booking dapat segera kami konfirmasi 🙏✨
+  `;
+
+        window.open(
+          `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`,
+          "_blank"
+        );
+      }
+    </script>
+  </body>
+</html>
